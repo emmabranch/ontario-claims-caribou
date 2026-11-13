@@ -1,1 +1,4 @@
+^renv$
+^renv\.lock$
+^environment\.yml$
 ^LICENSE\.md$
