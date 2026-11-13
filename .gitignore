@@ -1,0 +1,37 @@
+# OS and editors
+.DS_Store
+.vscode/
+
+# R
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data: downloaded by script, never committed
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Large spatial files anywhere
+*.gpkg
+*.shp
+*.shx
+*.dbf
+*.prj
+*.cpg
+*.zip
+*.tif
+
+# QGIS temporary files
+*.qgs~
+*.qgz~
+.Rproj.user
+.httr-oauth
+.quarto

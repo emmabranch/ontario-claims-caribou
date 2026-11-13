@@ -1,0 +1,14 @@
+name: claims-caribou
+channels:
+  - conda-forge
+dependencies:
+  - python=3.12
+  - geopandas
+  - pyogrio
+  - pyproj
+  - shapely
+  - pandas
+  - requests
+  - beautifulsoup4
+  - pyyaml
+  - ipykernel
