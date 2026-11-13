@@ -1,0 +1,24 @@
+# Data sources for ontario-claims-caribou
+# Read by python/01_download_data.py
+
+ogsearth_claims:
+  description: Active mining claims and alienations (MLAS operational data)
+  page_url: https://www.geologyontario.mndm.gov.on.ca/ogsearth.html
+  link_pattern: operational_gis_data.zip
+  fallback_url: https://www.geologyontario.mines.gov.on.ca/mmd/mines/documents/claimaps/mlas_operational_gis_data.zip
+  publisher: Ontario Ministry of Energy and Mines, Ontario Geological Survey
+  licence: King's Printer for Ontario (unofficial version, for viewing purposes)
+
+ogsearth_admin:
+  description: Administrative boundaries (provincial boundary, mining divisions, cell grid)
+  page_url: https://www.geologyontario.mndm.gov.on.ca/ogsearth.html
+  link_pattern: administrative_gis_data.zip
+  fallback_url: https://www.geologyontario.mines.gov.on.ca/mmd/mines/documents/claimaps/endm_administrative_gis_data.zip
+  publisher: Ontario Ministry of Energy and Mines, Ontario Geological Survey
+  licence: King's Printer for Ontario
+
+caribou_ranges:
+  description: Caribou Range Boundary, Ontario Woodland Caribou Recovery Strategy
+  url: https://ws.gisetl.lrc.gov.on.ca/fmedatadownload/Packages/CARIBRNG.zip
+  publisher: Ontario Ministry of the Environment, Conservation and Parks
+  licence: Open Government Licence - Ontario
