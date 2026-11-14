@@ -17,7 +17,7 @@ An automated, reproducible workflow that downloads Ontario's mining claims data,
 - **Sydney** is the most heavily claimed range (31% of its area), followed by Churchill (21%) and Missisa (20%).
 - **Missisa**, which contains the Ring of Fire, has the largest claimed area of any range (13,900 km²) and over 72,000 claims.
 - Area staked per year rose from about 9,100 km² in 2019 to a **peak of 28,600 km² in 2023**, and remained high in 2025 (21,200 km²) and 2026 to date (17,700 km²).
-- In most years, 40 to 46% of newly staked area fell inside caribou ranges. It was **53% in 2021** and **60% in 2025**. Caribou ranges cover roughly 45% of the province, so 2025 staking was concentrated in caribou range more than an even spread would suggest.
+- In most years, about 40 to 46% of newly staked area fell inside caribou ranges (lowest: 39.7% in 2024). It was **53% in 2021**, **60% in 2025**, and **50% in 2026 to date** (partial year). Caribou ranges cover roughly 45% of the province, so 2025 staking was concentrated in caribou range more than an even spread would suggest.
 
 ![Share of each caribou range under active claims](outputs/figures/fig1_range_overlap.png)
 
@@ -121,7 +121,7 @@ ontario-claims-caribou/
 
 ## Tools
 
-Python (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, renv), QGIS, Git and GitHub. GitHub Copilot were used as coding assistants; all code was reviewed, run, and checked by the author.
+Python (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, renv), QGIS, Git and GitHub. GitHub Copilot was used as coding assistants; all code was reviewed, run, and checked by the author.
 
 ## Licence
 
