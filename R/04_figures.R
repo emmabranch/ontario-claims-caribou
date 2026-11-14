@@ -113,8 +113,8 @@ fig2 <- ggplot(staked_long, aes(x = year_label, y = km2, fill = where)) +
                      expand = expansion(mult = c(0, 0.12))) +
   labs(
     title    = "Mining claim area staked each year in Ontario",
-    subtitle = paste0("Includes claims that have since lapsed. In most years 40 to 46% of staked area\n",
-                      "fell inside caribou ranges; it was 53% in 2021 and 60% in 2025."),
+    subtitle = paste0("Includes claims that have since lapsed. In most years about 40 to 46% of staked area\n",
+                      "fell inside caribou ranges; it was 53% in 2021, 60% in 2025, and 50% in 2026 to date."),
     x = NULL, y = expression("Area staked (km"^2*")"),
     caption = paste0(source_note,
                      "\n* Partial years: 2018 from MLAS launch (10 April); 2026 to ", as_of,
