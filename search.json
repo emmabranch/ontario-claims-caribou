@@ -46,14 +46,14 @@
     "href": "methods.html#tools",
     "title": "Methods and data",
     "section": "Tools",
-    "text": "Tools\nPython (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, leaflet, renv), QGIS, Quarto, Git and GitHub. GitHub Copilot and Claude were used as coding assistants; all code was reviewed, run, and checked by the author.\nCode is released under the MIT Licence. Data remain under their original licences."
+    "text": "Tools\nPython (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, leaflet, renv), QGIS, Quarto, Git and GitHub. GitHub Copilot was used as a coding assistant; all code was reviewed, run, and checked by the author.\nCode is released under the MIT Licence. Data remain under their original licences."
   },
   {
     "objectID": "index.html",
     "href": "index.html",
     "title": "How much of Ontario’s caribou range is staked for mining?",
     "section": "",
-    "text": "Independent portfolio project · Python · R · QGIS · open data\n\n\nActive mining claims cover 10.6% of Ontario’s woodland caribou ranges, as of 13 November 2026. This project downloads the province’s claims data automatically, measures the overlap with each of the 14 ranges, and tracks how claim staking has changed since Ontario moved registration online in 2018."
+    "text": "Independent portfolio project · Python · R · QGIS · open data\n\n\nActive mining claims cover 10.6% of Ontario’s woodland caribou ranges, as of 13 November 2026. This project downloads the province’s claims data automatically, measures the overlap with each of the 14 ranges, and tracks how claim staking has changed since Ontario moved registration online in 2018.\nExplore the ranges Methods and data Code on GitHub\nBackground: one stripe per year since 2018, brighter where a larger share of newly staked land fell inside caribou range. The latest year runs to 13 November 2026."
   },
   {
     "objectID": "index.html#explore-the-ranges",
