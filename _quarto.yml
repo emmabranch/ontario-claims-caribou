@@ -1,0 +1,35 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - index.qmd
+    - methods.qmd
+  resources:
+    - outputs/maps/ontario_claims_caribou_map.pdf
+
+website:
+  title: "Ontario mining claims and caribou"
+  site-url: https://emmabranch.github.io/ontario-claims-caribou/
+  repo-url: https://github.com/emmabranch/ontario-claims-caribou
+  navbar:
+    left:
+      - href: index.qmd
+        text: Findings
+      - href: methods.qmd
+        text: Methods and data
+    right:
+      - icon: github
+        href: https://github.com/emmabranch/ontario-claims-caribou
+  page-footer:
+    center: "Independent portfolio project by Emma Branch. Not affiliated with WCS Canada."
+
+format:
+  html:
+    theme: [flatly, theme.scss]
+    toc: false
+
+execute:
+  echo: false
+  warning: false
+  message: false
+  freeze: auto

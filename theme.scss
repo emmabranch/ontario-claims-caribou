@@ -1,0 +1,124 @@
+/*-- scss:defaults --*/
+/* Shared look with the other portfolio sites: Fraunces headings, Inter body */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Inter:wght@400;500;600;800&display=swap');
+
+$primary:    #2f5d3f;
+$secondary:  #5b6770;
+$body-bg:    #fbfaf7;
+$body-color: #1f2a24;
+$link-color: #b54f00;
+
+$navbar-bg: #14261c;
+$navbar-fg: #d3e2d6;
+$navbar-hl: #ffffff;
+$footer-bg: #14261c;
+$footer-fg: #c4d4c8;
+
+$font-family-sans-serif: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+$headings-font-family:   "Fraunces", Georgia, serif;
+$headings-font-weight:   700;
+$border-radius: 10px;
+
+/*-- scss:rules --*/
+
+/* ---------- Type and headings ---------- */
+h1, h2, h3 { letter-spacing: -0.01em; }
+h1.title { font-weight: 800; }
+h2 {
+  border-bottom: none !important;
+  padding-bottom: 0;
+  margin-top: 2.4rem;
+}
+h2::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 0.5rem;
+  background: linear-gradient(90deg, #2f5d3f, #d95f02);
+}
+html { scroll-padding-top: 70px; }
+
+/* ---------- Navbar and footer ---------- */
+.navbar { box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18); }
+.navbar-title { font-family: $headings-font-family; font-weight: 800; }
+.navbar .nav-link { font-weight: 500; }
+.nav-footer { font-size: 0.85rem; }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 85% 15%, rgba(217, 95, 2, 0.28) 0%, rgba(217, 95, 2, 0) 45%),
+    linear-gradient(135deg, #14261c 0%, #2f5d3f 60%, #4f7a4a 100%);
+  color: #fff;
+  padding: 2.4rem 2.6rem 2rem;
+  border-radius: 18px;
+  margin: 0.5rem 0 1.4rem;
+  box-shadow: 0 10px 30px rgba(20, 38, 28, 0.25);
+}
+.hero h1 {
+  font-family: $headings-font-family;
+  color: #fff;
+  font-weight: 800;
+  font-size: 2.4rem;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  margin: 0.3rem 0 0.8rem;
+  border: none;
+}
+.hero h1::after { display: none; }
+.hero h1 .accent { color: #f2a65a; }
+.hero p { opacity: 0.93; max-width: 52rem; margin: 0; font-size: 1.04rem; line-height: 1.6; }
+.hero .eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #f6c99a;
+}
+
+/* ---------- Stat boxes ---------- */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin: 0 0 1.6rem;
+}
+.stat-box {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  border-top: 4px solid #d95f02;
+  box-shadow: 0 1px 3px rgba(20, 38, 28, 0.08), 0 8px 20px rgba(20, 38, 28, 0.06);
+}
+.stat-box:nth-child(2) { border-top-color: #2f5d3f; }
+.stat-box:nth-child(3) { border-top-color: #b54f00; }
+.stat-box:nth-child(4) { border-top-color: #4f7a4a; }
+.stat-box p { margin: 0; }
+.stat-box .num {
+  font-family: $headings-font-family;
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #14261c;
+  line-height: 1.05;
+}
+.stat-box .lab { font-size: 0.86rem; color: #5b6770; line-height: 1.4; }
+
+/* ---------- Notes, figures, and map ---------- */
+.disclaimer {
+  font-size: 0.92rem; color: #555;
+  border-left: 3px solid #d95f02; padding-left: 0.8rem; margin: 1rem 0 1.4rem;
+}
+.quarto-figure img, img.figure-img {
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(20, 38, 28, 0.08), 0 8px 20px rgba(20, 38, 28, 0.06);
+}
+.leaflet-container {
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(20, 38, 28, 0.08), 0 8px 20px rgba(20, 38, 28, 0.06);
+}
+.stat-box .num .unit { font-size: 1.3rem; font-weight: 700; }
