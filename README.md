@@ -123,7 +123,7 @@ ontario-claims-caribou/
 
 ## Tools
 
-Python (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, renv), QGIS, Git and GitHub. GitHub Copilot was used as coding assistant; all code was reviewed, run, and checked by the author.
+Python (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, renv), QGIS, Git and GitHub. GitHub Copilot was used as a coding assistant; all code was reviewed, run, and checked by the author.
 
 ## Licence
 

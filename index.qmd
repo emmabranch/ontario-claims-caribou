@@ -22,15 +22,52 @@ pct_2025   <- by_year |> filter(issue_year == 2025) |> pull(pct_area_in_ranges)
 fmt_num <- function(x, round_to = 0) format(round(x, round_to), big.mark = ",", trim = TRUE)
 ```
 
-::: {.hero}
+```{r}
+#| label: hero-stripes
+#| include: false
+# Hero background: one stripe per year, brighter where a larger share of
+# newly staked land fell inside caribou range
+yrs <- arrange(by_year, issue_year)
+stripe_pal <- colorNumeric(c("#3b2a12", "#94661a", "#f0c674"),
+                           domain = range(yrs$pct_area_in_ranges, na.rm = TRUE),
+                           na.color = "#3b2a12")
+n_yrs <- nrow(yrs)
+w <- 1000 / n_yrs
+stripe_rects <- sprintf('<rect x="%.2f" y="0" width="%.2f" height="26" fill="%s"></rect>',
+                        (seq_len(n_yrs) - 1) * w, w + 0.6, stripe_pal(yrs$pct_area_in_ranges))
+stripes_html <- paste0('<div class="hero-bg"><svg viewBox="0 0 1000 26" preserveAspectRatio="none" aria-hidden="true">',
+                       paste(stripe_rects, collapse = ""), '</svg></div>')
+```
+
+::::: {.hero-full .column-screen}
+
+```{r}
+#| label: hero-bg
+#| output: asis
+cat(stripes_html)
+```
+
+:::: {.hero-inner}
+
 [Independent portfolio project · Python · R · QGIS · open data]{.eyebrow}
 
 # How much of Ontario's caribou range is staked for [mining]{.accent}?
 
 Active mining claims cover `r round(all_ranges$pct_claimed, 1)`% of Ontario's woodland caribou ranges, as of `r as_of_txt`. This project downloads the province's claims data automatically, measures the overlap with each of the 14 ranges, and tracks how claim staking has changed since Ontario moved registration online in 2018.
-:::
 
-:::: {.stat-row}
+[Explore the ranges](#explore-the-ranges){.btn .btn-accent} [Methods and data](methods.qmd){.btn .btn-ghost} [Code on GitHub](https://github.com/emmabranch/ontario-claims-caribou){.btn .btn-ghost}
+
+[Background: one stripe per year since `r min(yrs$issue_year)`, brighter where a larger share of newly staked land fell inside caribou range. The latest year runs to `r as_of_txt`.]{.hero-note}
+
+::::
+
+```{=html}
+<svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,40 L1440,80 L0,80 Z"></path></svg>
+```
+
+:::::
+
+:::: {.stat-row .lift}
 ::: {.stat-box}
 [`r round(all_ranges$pct_claimed, 1)`%]{.num}
 

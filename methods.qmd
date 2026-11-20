@@ -83,6 +83,6 @@ Every filtering step and count is recorded in [`docs/data_prep_log.md`](https://
 
 ## Tools
 
-Python (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, leaflet, renv), QGIS, Quarto, Git and GitHub. GitHub Copilot and Claude were used as coding assistants; all code was reviewed, run, and checked by the author.
+Python (geopandas, pyogrio, requests, BeautifulSoup), R (sf, dplyr, ggplot2, leaflet, renv), QGIS, Quarto, Git and GitHub. GitHub Copilot was used as a coding assistant; all code was reviewed, run, and checked by the author.
 
 Code is released under the [MIT Licence](https://github.com/emmabranch/ontario-claims-caribou/blob/main/LICENSE.md). Data remain under their original licences.

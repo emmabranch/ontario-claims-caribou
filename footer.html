@@ -1,0 +1,43 @@
+<!-- Shared portfolio footer. Master copy: /Users/ecox/projects/_brand-kit/footer.html -->
+<footer class="eb-footer" role="contentinfo">
+  <div class="eb-footer-inner">
+    <div class="eb-footer-name">Emma Branch</div>
+    <div class="eb-footer-tag">Epidemiologist and data analyst, British Columbia</div>
+    <div class="eb-footer-heading">Portfolio projects</div>
+    <nav class="eb-footer-projects" aria-label="Portfolio projects">
+      <a href="https://emmabranch.github.io/redcap-starter-kit/">REDCap starter kit</a>
+      <a href="https://emmabranch.github.io/bc-housing-indicators/">BC housing indicators</a>
+      <a href="https://emmabranch.github.io/bc-fish-stock-status/">BC fish stock status</a>
+      <a href="https://emmabranch.github.io/bc-lightstation-qc/">BC lightstation sea temperatures</a>
+      <a href="https://emmabranch.github.io/bc-wildfire-bigquery/">BC wildfire history</a>
+      <a href="https://emmabranch.github.io/vch-climate-equity-profile/">VCH climate equity profile</a>
+      <a href="https://emmabranch.shinyapps.io/bc-salmon-explorer">BC Salmon Explorer</a>
+      <a href="https://emmabranch.github.io/ontario-claims-caribou/">Ontario mining claims and caribou</a>
+    </nav>
+    <div class="eb-footer-contact">
+      <a href="https://github.com/emmabranch">GitHub</a>
+      <a href="https://www.linkedin.com/in/embranch/">LinkedIn</a>
+      <a href="mailto:emma.branch@gmail.com">emma.branch@gmail.com</a>
+    </div>
+  </div>
+</footer>
+<script>
+  /* Quarto places included HTML inside the page layout. Move the top bar
+     and footer to the edges of the page so they span the full width. */
+  document.addEventListener("DOMContentLoaded", function () {
+    var bar = document.querySelector(".eb-topbar");
+    if (bar) document.body.insertBefore(bar, document.body.firstChild);
+    var foot = document.querySelector(".eb-footer");
+    if (foot) {
+      /* On websites, put it just above Quarto's own footer (which holds the
+         project disclaimer); otherwise at the very end of the page. */
+      var qfoot = document.querySelector("footer.footer");
+      if (qfoot) qfoot.parentNode.insertBefore(foot, qfoot);
+      else document.body.appendChild(foot);
+    }
+    /* Hide Quarto's empty footer columns so they don't add space on phones */
+    document.querySelectorAll(".nav-footer-left, .nav-footer-right").forEach(function (el) {
+      if (!el.children.length && !el.textContent.replace(/[\s\u00a0]/g, "")) el.style.display = "none";
+    });
+  });
+</script>

@@ -1,0 +1,245 @@
+/* =====================================================================
+   brand.scss: shared styling for Emma Branch's portfolio sites
+   Colours and fonts live in _brand.yml. This file adds the finishing
+   touches: navbar, headings, content card, top bar, and footer.
+   Master copy: /Users/ecox/projects/_brand-kit/brand.scss
+   ===================================================================== */
+
+/*-- scss:defaults --*/
+$navbar-bg: #0b2233;
+$navbar-fg: #c9d6e0;
+$navbar-hl: #ffffff;
+$border-radius: 10px;
+$footer-bg: #0b2233;
+$footer-fg: #c9d6e0;
+
+/*-- scss:rules --*/
+
+/* ---------- Project colour slots ----------
+   Each project sets its own three colours at the top of its theme.scss:
+   :root { --eb-accent: #...; --eb-accent-2: #...; --eb-accent-light: #...; }
+   accent       = underlines, borders, active tab (dark enough for white backgrounds)
+   accent-2     = second colour in the underline gradient
+   accent-light = hero accent words and solid buttons on navy (navy text on it)
+   These defaults are the original ocean colours. */
+:root {
+  --eb-accent: #2471a3;
+  --eb-accent-2: #2bb3a0;
+  --eb-accent-light: #5fd3c2;
+}
+
+/* ---------- Navbar (website projects and dashboards) ---------- */
+.navbar { box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18); }
+.navbar-title { font-family: "Fraunces", Georgia, serif; font-weight: 800; letter-spacing: -0.01em; }
+.navbar .nav-link { font-weight: 500; }
+.navbar .nav-link.active { box-shadow: inset 0 -3px 0 var(--eb-accent-light); }
+
+/* ---------- Headings ---------- */
+#title-block-header .title { font-weight: 800; letter-spacing: -0.015em; }
+#title-block-header .subtitle { font-family: "Inter", sans-serif; font-weight: 500; color: #5b7083; }
+main h2 {
+  border-bottom: none;
+  padding-bottom: 0.55rem;
+  margin-top: 2.2rem;
+  /* short teal-blue underline, the same as the housing dashboard */
+  background: linear-gradient(90deg, var(--eb-accent), var(--eb-accent-2)) no-repeat left bottom / 44px 4px;
+}
+
+/* ---------- Hero accent words and buttons use the project colour ---------- */
+.hero-full h1 .accent, .hero h1 .accent, .hero-title .accent, .hero-accent { color: var(--eb-accent-light); }
+.btn-accent { background: var(--eb-accent-light); color: #0b2233; border: none; font-weight: 600; }
+.btn-accent:hover, .btn-accent:focus { background: var(--eb-accent-light); color: #0b2233; filter: brightness(1.08); }
+.btn-ghost { background: rgba(255, 255, 255, 0.08); color: #fff; border: 1px solid rgba(255, 255, 255, 0.5); }
+.btn-ghost:hover, .btn-ghost:focus { background: rgba(255, 255, 255, 0.18); color: #fff; }
+
+/* Full-width heroes sit flush under the navbar (pages whose title block is empty) */
+main.content:has(.hero-full) { margin-top: 0 !important; padding-top: 0 !important; }
+main.content:has(.hero-full) > #title-block-header { margin: 0 !important; }
+
+
+/* =====================================================================
+   Shared full-width hero with a wave (home pages of multi-page sites)
+   Markup: see hero-snippet.qmd in the brand kit.
+   ===================================================================== */
+:root {
+  --eb-hero-glow: rgba(95, 212, 192, 0.25);  /* soft light in the top right */
+  --eb-hero-shade: 8, 26, 40;                /* RGB of the dark overlay */
+}
+.hero-full {
+  position: relative;
+  z-index: 0 !important;
+  margin-top: 0;
+  background-color: #0b2233;
+  background-size: 100% 100%;
+  color: #fff;
+  overflow: hidden;
+}
+.hero-full::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 82% 20%, var(--eb-hero-glow) 0%, rgba(0, 0, 0, 0) 42%),
+    linear-gradient(100deg, rgba(var(--eb-hero-shade), 0.97) 0%, rgba(var(--eb-hero-shade), 0.86) 45%, rgba(var(--eb-hero-shade), 0.42) 100%);
+}
+/* Quarto lifts full-width blocks above the page (z-index 998); keep heroes
+   underneath so the stat boxes can overlap them */
+.column-screen:has(.hero-full) { z-index: 0 !important; }
+/* Optional data stripes drawn as an inline SVG behind the text */
+.hero-full .hero-bg { position: absolute; inset: 0; z-index: 0; }
+.hero-full .hero-bg svg, .hero-full .hero-bg img { display: block; width: 100%; height: 100%; }
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 5.5rem 2rem 8rem;
+}
+.hero-full h1 {
+  color: #fff;
+  font-size: clamp(2.3rem, 5.2vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: -0.015em;
+  margin: 0.6rem 0 1.3rem;
+  border: none;
+  background: none;
+  padding: 0;
+  text-wrap: balance;
+}
+.hero-full h1::after { display: none; }
+.hero-full h1 .accent { display: block; }
+.hero-full p, .hero-full .hero-lede { font-size: 1.12rem; line-height: 1.6; max-width: 44rem; opacity: 0.94; }
+.hero-full .eyebrow {
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+.hero-full .btn { margin: 1rem 0.6rem 0 0; border-radius: 999px; font-weight: 600; padding: 0.55rem 1.25rem; }
+.hero-full .hero-note { font-size: 0.78rem; line-height: 1.5; opacity: 0.72; margin-top: 2rem; max-width: 52rem; }
+.hero-full .hero-note + .hero-note { margin-top: 0.4rem; }
+.hero-wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 80px;
+  z-index: 3;
+}
+.hero-wave path { fill: var(--bs-body-bg) !important; }  /* always matches the page */
+
+/* ---------- Stat boxes (optionally overlapping the hero with .lift) ---------- */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 14px;
+  margin: 0 0 1.6rem;
+}
+.stat-box {
+  background: rgba(255, 255, 255, 0.97);
+  border-radius: 14px;
+  padding: 1rem 1.1rem;
+  border-top: 4px solid var(--eb-accent);
+  box-shadow: 0 1px 3px rgba(16, 42, 67, 0.08), 0 8px 20px rgba(16, 42, 67, 0.06);
+}
+.stat-box .num {
+  display: block;
+  font-family: "Fraunces", Georgia, serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: #0b2233;
+  line-height: 1.05;
+}
+.stat-box .lab { display: block; font-size: 0.86rem; color: #5b6770; margin-top: 0.3rem; line-height: 1.4; }
+.stat-row.lift { position: relative; z-index: 10 !important; margin-top: -4.5rem; }
+div.cell:has(.stat-row.lift) { position: relative; z-index: 10 !important; margin-top: -4.5rem; }
+div.cell .stat-row.lift { margin-top: 0; }
+div.cell:has(.stat-row.lift) .cell-output-display { overflow: visible !important; }
+
+@media (max-width: 900px) {
+  .stat-row, .stat-row.lift { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stat-box .num { font-size: 1.5rem; }
+  .stat-box { padding: 0.85rem 0.9rem; }
+}
+@media (max-width: 700px) {
+  .hero-inner { padding: 3.5rem 1.25rem 6rem; }
+  .hero-full p, .hero-full .hero-lede { font-size: 1.02rem; }
+}
+
+/* ---------- Content on a soft white card (single-page reports only) ---------- */
+/* Applies only on pages with the top bar, so website heroes stay full width */
+body:has(> .eb-topbar) main.content {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 6px 18px rgba(16, 24, 40, 0.06);
+  padding: 2rem 2.5rem 2.5rem;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
+}
+@media (max-width: 700px) {
+  body:has(> .eb-topbar) main.content { padding: 1.25rem 1rem 1.5rem; margin-top: 0.75rem; border-radius: 10px; }
+}
+
+/* Quarto leaves an empty 60px row under the content; the footer replaces it */
+#quarto-content.page-rows-contents { grid-template-rows: [content-top] auto [content-bottom] 0 [page-bottom]; }
+
+/* Tables and code read a little smaller than body text */
+main table { font-size: 0.9rem; }
+
+/* ---------- Top bar for single-page reports (topbar.html) ---------- */
+.eb-topbar {
+  background: #0b2233;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.18);
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem 1.4rem;
+  padding: 0.7rem 1.4rem;
+}
+.eb-topbar a { color: #c9d6e0; text-decoration: none; font-weight: 500; font-size: 0.92rem; }
+.eb-topbar a:hover, .eb-topbar a:focus { color: #ffffff; }
+.eb-topbar .eb-topbar-title { font-family: "Fraunces", Georgia, serif; font-weight: 800;
+                              font-size: 1.1rem; color: #ffffff; letter-spacing: -0.01em; }
+.eb-topbar .eb-topbar-links { display: flex; flex-wrap: wrap; gap: 0.3rem 1.2rem; margin-left: auto; }
+@media (max-width: 700px) {
+  .eb-topbar { padding: 0.6rem 1rem; }
+  .eb-topbar .eb-topbar-links { margin-left: 0; }
+}
+
+/* ---------- Footer (footer.html) ---------- */
+.eb-footer {
+  background: #0b2233; color: #c9d6e0;
+  margin-top: 1.5rem; padding: 2rem 1.4rem 2.2rem;
+  font-size: 0.88rem; line-height: 1.6;
+}
+.eb-footer-inner { max-width: 1100px; margin: 0 auto; }
+.eb-footer a { color: #9fe3d8; text-decoration: none; }
+.eb-footer a:hover, .eb-footer a:focus { color: #ffffff; text-decoration: underline; }
+.eb-footer-name { font-family: "Fraunces", Georgia, serif; font-weight: 800; font-size: 1.15rem; color: #ffffff; }
+.eb-footer-tag { margin-bottom: 1rem; }
+.eb-footer-heading { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+                     color: #9fe3d8; margin-bottom: 0.35rem; }
+.eb-footer-projects { display: flex; flex-wrap: wrap; gap: 0.2rem 1.3rem; margin-bottom: 1.1rem; }
+.eb-footer-contact { display: flex; flex-wrap: wrap; gap: 0.2rem 1.3rem;
+                     border-top: 1px solid rgba(255, 255, 255, 0.14); padding-top: 0.9rem; }
+
+/* Quarto's own page footer (websites): sits under the shared footer as a fine-print line */
+.nav-footer { font-size: 0.8rem; border-top: 1px solid rgba(255, 255, 255, 0.14); }
+.eb-footer + .footer .nav-footer { padding-top: 0.6rem; }
+
+/* Footer on phones: smaller text, project links in a tidy two-column grid */
+@media (max-width: 700px) {
+  body:has(> .eb-topbar) main.content { margin-bottom: 0.5rem; }
+  .eb-footer { margin-top: 1rem; padding: 1.4rem 1.1rem 1.6rem; font-size: 0.8rem; line-height: 1.4; }
+  .eb-footer-name { font-size: 1.05rem; }
+  .eb-footer-tag { margin-bottom: 0.9rem; }
+  .eb-footer-projects { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1rem; }
+  .eb-footer-contact { gap: 0.4rem 1.1rem; }
+  .nav-footer { min-height: 0 !important; padding: 0.6rem 1rem 1rem !important; }
+  .nav-footer > div { min-height: 0 !important; padding: 0 !important; margin: 0 !important; }
+}
+
+/* Hide the top bar and footer when printing */
+@media print { .eb-topbar, .eb-footer { display: none; } main.content { box-shadow: none; padding: 0; } }

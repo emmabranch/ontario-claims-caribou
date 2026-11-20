@@ -1,0 +1,38 @@
+meta:
+  name: Emma Branch
+  link:
+    home: https://github.com/emmabranch
+color:
+  palette:
+    navy: "#0b2233"
+    ocean: "#1f4e79"
+    blue: "#1f6fb2"
+    teal: "#2bb3a0"
+    seafoam: "#9fe3d8"
+    slate: "#5b7083"
+    charcoal: "#1f2a33"
+    paper: "#f6f4ef"
+    mist: "#c9d6e0"
+  background: paper
+  foreground: charcoal
+  primary: ocean
+  secondary: slate
+  light: paper
+  dark: navy
+typography:
+  fonts:
+    - family: Inter
+      source: google
+      weight: [400, 500, 600, 700]
+    - family: Fraunces
+      source: google
+      weight: [600, 700, 800]
+  base:
+    family: Inter
+    line-height: 1.6
+  headings:
+    family: Fraunces
+    weight: 700
+    color: navy
+  link:
+    color: blue
