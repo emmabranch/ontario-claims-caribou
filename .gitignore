@@ -35,3 +35,8 @@ data/processed/*
 .Rproj.user
 .httr-oauth
 .quarto
+_site/
+.quarto/
+
+/.quarto/
+**/*.quarto_ipynb
