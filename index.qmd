@@ -121,13 +121,13 @@ Every active claim, drawn without outlines so 411,000 claims read as a single fo
 
 The `r top_range$range_name` range has the highest share under claim. Missisa, which contains the Ring of Fire, has the largest claimed area of any range.
 
-![](outputs/figures/fig1_range_overlap.png)
+![Bar chart of the share of each caribou range under active claim, from Sydney at 31% down to James Bay at 0.5%, with all ranges at 10.6%.](outputs/figures/fig1_range_overlap.png){fig-alt="Bar chart of the share of each caribou range under active claim, from Sydney at 31% to James Bay at 0.5%."}
 
 ## How has staking changed?
 
 Counting claims that have since lapsed as well as active ones, area staked per year peaked in 2023. In most years about 40 to 46% of staked land fell inside caribou range, rising to 53% in 2021 and `r round(pct_2025)`% in 2025.
 
-![](outputs/figures/fig2_staking_by_year.png)
+![Area staked each year from 2018 to 2026, split into inside and outside caribou ranges. Staking peaked in 2023, and 60% of land staked in 2025 fell inside caribou range.](outputs/figures/fig2_staking_by_year.png){fig-alt="Stacked bar chart of area staked per year, inside and outside caribou ranges, 2018 to 2026."}
 
 ## About this project
 
