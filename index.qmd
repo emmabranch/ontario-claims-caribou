@@ -75,9 +75,9 @@ Active mining claims cover `r round(all_ranges$pct_claimed, 1)`% of Ontario's wo
 :::
 
 ::: {.stat-box}
-[`r fmt_num(all_ranges$claimed_km2, -2)` [km²]{.unit}]{.num}
+[`r fmt_num(all_ranges$claimed_km2, -2)`]{.num}
 
-[claimed, nearly the size of Nova Scotia]{.lab}
+[km² claimed, nearly the size of Nova Scotia]{.lab}
 :::
 
 ::: {.stat-box}
