@@ -1,5 +1,7 @@
 # Mining claims across Ontario's woodland caribou ranges
 
+**[View the project website](https://emmabranch.github.io/ontario-claims-caribou/)**
+
 An automated, reproducible workflow that downloads Ontario's mining claims data, measures how much of each woodland caribou range is covered by active claims, and tracks how claim staking has changed since online staking began in 2018.
 
 ![Map of active mining claims across Ontario's woodland caribou ranges](outputs/maps/ontario_claims_caribou_map.png)
