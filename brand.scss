@@ -171,6 +171,22 @@ div.cell:has(.stat-row.lift) .cell-output-display { overflow: visible !important
   .hero-full p, .hero-full .hero-lede { font-size: 1.02rem; }
 }
 
+/* ---------- Hero above a single-page report (report-hero.html) ---------- */
+.eb-report-hero .hero-inner { padding: 4rem 2rem 6.5rem; }
+.eb-report-hero h1 { font-size: clamp(2rem, 4.4vw, 3.4rem); }
+/* Jumps to a section leave a little space above its heading */
+body.has-report-hero section[id] { scroll-margin-top: 1.5rem; }
+/* The report card rises over the bottom of the wave (footer.html keeps the
+   table of contents in step with this) */
+body.has-report-hero main.content { position: relative; z-index: 5; margin-top: -3.5rem !important; }
+body.has-report-hero #quarto-margin-sidebar,
+body.has-report-hero #quarto-sidebar-toc-left,
+body.has-report-hero .sidebar.toc-left { padding-top: 1.5rem; }
+@media (max-width: 700px) {
+  .eb-report-hero .hero-inner { padding: 2.5rem 1.25rem 5rem; }
+  body.has-report-hero main.content { margin-top: -2.5rem !important; }
+}
+
 /* ---------- Content on a soft white card (single-page reports only) ---------- */
 /* Applies only on pages with the top bar, so website heroes stay full width */
 body:has(> .eb-topbar) main.content {
