@@ -14,10 +14,7 @@
   --eb-hero-shade: 16, 32, 24;
 }
 
-/* ---------- Type ---------- */
-h1, h2, h3 { letter-spacing: -0.01em; }
-h1.title { font-weight: 800; }
-h2 { margin-top: 2.4rem; }
+/* ---------- Spacing ---------- */
 html { scroll-padding-top: 70px; }
 
 /* The accent word sits inside the headline here, so keep it on the same line */
@@ -37,27 +34,29 @@ html { scroll-padding-top: 70px; }
   }
 }
 
-/* ---------- Stat boxes: one colour each ---------- */
-.stat-box:nth-child(1) { border-top-color: #d95f02; }
-.stat-box:nth-child(2) { border-top-color: #2f5d3f; }
-.stat-box:nth-child(3) { border-top-color: #b54f00; }
-.stat-box:nth-child(4) { border-top-color: #4f7a4a; }
+/* ---------- Stat boxes: lichen golds, tomato for the most claimed range ---------- */
+.stat-box:nth-child(1) { border-top-color: #94661a; }
+.stat-box:nth-child(2) { border-top-color: #d9a441; }
+.stat-box:nth-child(3) { border-top-color: #FF5A36; }
+.stat-box:nth-child(4) { border-top-color: #5e400f; }
 .stat-box p { margin: 0; }
 
 /* ---------- Notes, figures, and map ---------- */
 .disclaimer {
-  font-size: 0.92rem; color: #555;
-  border-left: 3px solid #d95f02; padding-left: 0.8rem; margin: 1rem 0 1.4rem;
+  font-size: 0.92rem;
+  color: #111111;
+  background: #ffffff;
+  border: 2px solid #111111;
+  border-left: 8px solid #FFD23F;
+  padding: 0.7rem 1rem;
+  margin: 1rem 0 1.5rem;
 }
 .quarto-figure img, img.figure-img {
-  border-radius: 12px;
-  background: #fff;
-  box-shadow: 0 1px 3px rgba(20, 38, 28, 0.08), 0 8px 20px rgba(20, 38, 28, 0.06);
+  background: #ffffff;
+  border: 2px solid #111111;
+  box-shadow: 4px 4px 0 #111111;
 }
-.leaflet-container {
-  border-radius: 12px;
-  box-shadow: 0 1px 3px rgba(20, 38, 28, 0.08), 0 8px 20px rgba(20, 38, 28, 0.06);
-}
+main .leaflet-container { box-shadow: 6px 6px 0 #111111; }
 .stat-box .num .unit { font-size: 1.3rem; font-weight: 700; }
 
 /* Keep each number and its unit on one line; smaller unit on phones */

@@ -4,35 +4,42 @@ meta:
     home: https://github.com/emmabranch
 color:
   palette:
-    navy: "#0b2233"
-    ocean: "#1f4e79"
-    blue: "#1f6fb2"
-    teal: "#2bb3a0"
-    seafoam: "#9fe3d8"
-    slate: "#5b7083"
-    charcoal: "#1f2a33"
-    paper: "#f6f4ef"
-    mist: "#c9d6e0"
+    ink: "#111111"
+    paper: "#F3EEE3"
+    white: "#FFFFFF"
+    tomato: "#FF5A36"
+    cobalt: "#2340FF"
+    sunflower: "#FFD23F"
+    kelp: "#00B386"
+    hotpink: "#FF6FB0"
+    lilac: "#B9A4FF"
+    muted: "#5A544A"
   background: paper
-  foreground: charcoal
-  primary: ocean
-  secondary: slate
+  foreground: ink
+  primary: cobalt
+  secondary: muted
+  success: kelp
+  warning: sunflower
+  danger: tomato
   light: paper
-  dark: navy
+  dark: ink
 typography:
   fonts:
-    - family: Inter
-      source: google
-      weight: [400, 500, 600, 700]
-    - family: Fraunces
-      source: google
-      weight: [600, 700, 800]
+    # Bunny Fonts: the same open fonts as Google Fonts, without the tracking
+    - family: Bricolage Grotesque
+      source: bunny
+      weight: [400, 700, 800]
+    - family: Space Mono
+      source: bunny
+      weight: [400, 700]
   base:
-    family: Inter
+    family: Bricolage Grotesque
     line-height: 1.6
   headings:
-    family: Fraunces
-    weight: 700
-    color: navy
+    family: Bricolage Grotesque
+    weight: 800
+    color: ink
+  monospace:
+    family: Space Mono
   link:
-    color: blue
+    color: cobalt

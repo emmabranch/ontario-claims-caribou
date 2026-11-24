@@ -41,6 +41,10 @@ stripes_html <- paste0('<div class="hero-bg"><svg viewBox="0 0 1000 26" preserve
 
 ::::: {.hero-full .column-screen}
 
+```{=html}
+<img class="hero-motif" src="images/motif.svg" alt="">
+```
+
 ```{r}
 #| label: hero-bg
 #| output: asis
@@ -60,10 +64,6 @@ Active mining claims cover `r round(all_ranges$pct_claimed, 1)`% of Ontario's wo
 [Background: one stripe per year since `r min(yrs$issue_year)`, brighter where a larger share of newly staked land fell inside caribou range. The latest year runs to `r as_of_txt`.]{.hero-note}
 
 ::::
-
-```{=html}
-<svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,40 C240,80 480,0 720,30 C960,60 1200,10 1440,40 L1440,80 L0,80 Z"></path></svg>
-```
 
 :::::
 

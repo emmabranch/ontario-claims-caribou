@@ -6,12 +6,16 @@ project:
     - methods.qmd
   resources:
     - outputs/maps/ontario_claims_caribou_map.pdf
+    - images/motif.svg
 
 website:
   title: "Ontario mining claims and caribou"
   site-url: https://emmabranch.github.io/ontario-claims-caribou/
   repo-url: https://github.com/emmabranch/ontario-claims-caribou
+  favicon: images/favicon.png
   navbar:
+    logo: images/motif.svg
+    logo-alt: ""
     left:
       - href: index.qmd
         text: Findings
