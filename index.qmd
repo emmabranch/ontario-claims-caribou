@@ -137,11 +137,11 @@ leaflet(ranges, height = 560) |>
     highlightOptions = highlightOptions(weight = 3, color = "#14261c", bringToFront = TRUE)
   ) |>
   addPolygons(
-    data = ring_of_fire, fill = FALSE, color = "#222222", weight = 2, dashArray = "6 6",
+    data = ring_of_fire, fill = FALSE, color = "#111111", weight = 2, dashArray = "6 6",
     label = "Ring of Fire area (illustrative)"
   ) |>
   addLegend(
-    pal = pal, values = ~pct_claimed, position = "bottomright",
+    pal = pal, values = ~pct_claimed, position = "bottomright", opacity = 0.8,  # match the fill
     title = "Range area<br>under claim", labFormat = labelFormat(suffix = "%")
   )
 ```

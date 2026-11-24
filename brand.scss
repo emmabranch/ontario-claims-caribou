@@ -301,6 +301,18 @@ main details summary { font-weight: 800; cursor: pointer; }
 main .leaflet-container { border: var(--eb-line); border-radius: 0; font-family: "Bricolage Grotesque", sans-serif; }
 .leaflet-control-layers, .leaflet-bar, .info.legend { border: 2px solid #{$eb-ink} !important; border-radius: 0 !important; box-shadow: 3px 3px 0 #{$eb-ink} !important; }
 .js-plotly-plot .plotly text { font-family: "Bricolage Grotesque", sans-serif !important; }
+.js-plotly-plot .plotly .xtick text, .js-plotly-plot .plotly .ytick text { font-family: "Space Mono", monospace !important; }
+
+/* Leaflet legends and popups (theme_eb.R and eb_charts.js use the same colours) */
+.info.legend { background: $eb-white !important; color: $eb-ink !important; padding: 0.5rem 0.7rem !important;
+  font-family: "Bricolage Grotesque", sans-serif; font-size: 0.8rem; line-height: 1.35; }
+.info.legend strong { font-family: "Space Mono", monospace; font-size: 0.72rem; font-weight: 700; color: $eb-ink; }
+.leaflet-popup-content-wrapper { border: 2px solid #{$eb-ink}; border-radius: 0; box-shadow: 3px 3px 0 #{$eb-ink}; }
+.leaflet-popup-content { font-family: "Bricolage Grotesque", sans-serif; color: $eb-ink; }
+
+/* Observable Plot charts made with ebPlot() in eb_charts.js */
+.eb-plot [aria-label$="tick label"] text, .eb-plot g[aria-label$="tick label"] { font-family: "Space Mono", monospace; font-size: 10.5px; }
+.eb-plot [aria-label$="axis label"] text, .eb-plot g[aria-label$="axis label"] { font-family: "Space Mono", monospace; fill: $eb-muted; }
 
 /* ---------- Top bar for single-page reports (topbar.html) ---------- */
 .eb-topbar {

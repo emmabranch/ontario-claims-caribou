@@ -5,7 +5,8 @@
 #   2. Area staked per year, inside and outside caribou ranges
 #
 # Colours match the QGIS map: burnt orange = claims inside caribou range,
-# warm grey = everything else (de-emphasised on purpose).
+# warm grey = everything else (de-emphasised on purpose). Fonts, background,
+# and outlines come from the shared brand kit (R/theme_eb.R).
 # Outputs: outputs/figures/fig1_range_overlap.png
 #          outputs/figures/fig2_staking_by_year.png
 # =============================================================================
@@ -15,32 +16,17 @@ library(tidyr)
 library(readr)
 library(ggplot2)
 library(here)
+source(here("R", "theme_eb.R"))
+eb_use("ontario-claims-caribou")
 
-claim_orange <- "#D95F02"
-other_grey   <- "#C9C4BC"
-ink          <- "#222222"
-ink_muted    <- "#666666"
-grid_grey    <- "#E6E6E6"
+claim_orange <- "#D95F02"         # claims, as on the QGIS map
+other_grey   <- eb_col$context    # everything else
+ink          <- eb_col$ink
+ink_muted    <- eb_col$muted
 
 theme_claims <- function() {
-  theme_minimal(base_size = 11) +
-    theme(
-      plot.title         = element_text(face = "bold", colour = ink, size = 14),
-      plot.subtitle      = element_text(colour = ink_muted, margin = margin(b = 12)),
-      plot.caption       = element_text(colour = ink_muted, size = 8, hjust = 0,
-                                        margin = margin(t = 12)),
-      plot.title.position   = "plot",
-      plot.caption.position = "plot",
-      axis.text          = element_text(colour = ink_muted),
-      axis.title         = element_text(colour = ink_muted, size = 10),
-      panel.grid.minor   = element_blank(),
-      panel.grid.major   = element_line(colour = grid_grey, linewidth = 0.3),
-      legend.position    = "top",
-      legend.justification = "left",
-      legend.title       = element_blank(),
-      legend.text        = element_text(colour = ink),
-      plot.margin        = margin(15, 20, 10, 15)
-    )
+  theme_eb(base_size = 11) +
+    theme(legend.title = element_blank())
 }
 
 source_note <- paste(
@@ -58,13 +44,13 @@ by_range <- overlap |>
   mutate(range_name = reorder(range_name, pct_claimed))
 
 fig1 <- ggplot(by_range, aes(x = pct_claimed, y = range_name)) +
-  geom_col(fill = claim_orange, width = 0.7) +
+  geom_col(fill = claim_orange, colour = ink, linewidth = 0.3, width = 0.7) +
   geom_vline(xintercept = all_pct, linetype = "dashed",
              colour = ink_muted, linewidth = 0.4) +
   # White-backed labels, drawn after the reference line so it never cuts through a number
   geom_label(aes(label = sprintf("%.1f%%", pct_claimed)),
-             hjust = -0.1, size = 3.2, colour = ink, fill = "white",
-             label.size = 0, label.padding = unit(0.1, "lines")) +
+             hjust = -0.1, size = 3.2, colour = ink, fill = eb_col$paper,
+             linewidth = 0, label.padding = unit(0.1, "lines")) +
   annotate("text", x = all_pct + 0.5, y = 0.6, hjust = 0, vjust = 0, size = 3,
            colour = ink_muted, label = sprintf("All ranges: %.1f%%", all_pct)) +
   scale_x_continuous(labels = \(x) paste0(x, "%"),
@@ -81,7 +67,7 @@ fig1 <- ggplot(by_range, aes(x = pct_claimed, y = range_name)) +
   theme(panel.grid.major.y = element_blank())
 
 ggsave(here("outputs", "figures", "fig1_range_overlap.png"), fig1,
-       width = 8, height = 5.5, dpi = 300, bg = "white")
+       width = 8, height = 5.5, dpi = 300, device = ragg::agg_png)
 
 # ---- Figure 2: area staked per year, inside vs outside ranges ----------------
 by_year <- read_csv(here("outputs", "tables", "staking_by_year.csv"), show_col_types = FALSE)
@@ -103,7 +89,7 @@ lab_2025 <- by_year |>
             label = sprintf("%.0f%% inside\ncaribou ranges", pct_area_in_ranges))
 
 fig2 <- ggplot(staked_long, aes(x = year_label, y = km2, fill = where)) +
-  geom_col(width = 0.7, colour = "white", linewidth = 0.4) +
+  geom_col(width = 0.7, colour = ink, linewidth = 0.3) +
   geom_text(data = lab_2025, aes(x = year_label, y = y, label = label),
             inherit.aes = FALSE, vjust = -0.3, size = 3, colour = ink, lineheight = 0.9) +
   scale_fill_manual(values = c("Outside caribou ranges" = other_grey,
@@ -124,4 +110,4 @@ fig2 <- ggplot(staked_long, aes(x = year_label, y = km2, fill = where)) +
   theme(panel.grid.major.x = element_blank())
 
 ggsave(here("outputs", "figures", "fig2_staking_by_year.png"), fig2,
-       width = 8, height = 5.5, dpi = 300, bg = "white")
+       width = 8, height = 5.5, dpi = 300, device = ragg::agg_png)

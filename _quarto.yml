@@ -33,6 +33,11 @@ format:
     include-after-body: footer.html
     toc: false
 
+knitr:
+  opts_chunk:
+    dev: "ragg_png"
+    fig.retina: 3
+
 execute:
   echo: false
   warning: false
